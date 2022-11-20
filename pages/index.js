@@ -1,7 +1,5 @@
 import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
-// import { GoListOrdered } from 'react-icons/go';
-// import { GrTask } from 'react-icons/gr';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../utils/firebase';
 import { useRouter } from 'next/router';
