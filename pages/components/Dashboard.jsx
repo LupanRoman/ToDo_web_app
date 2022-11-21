@@ -1,7 +1,7 @@
 import React from 'react';
-import { auth } from '../../utils/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useRouter } from 'next/router';
+import { auth } from '../../utils/firebase';
 import SideBar from './SideBar';
 import TopBar from './TopBar';
 

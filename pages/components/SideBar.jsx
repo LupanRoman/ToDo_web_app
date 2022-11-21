@@ -1,16 +1,20 @@
-import React from 'react';
-import { auth } from '../../utils/firebase';
+import React, { useState } from 'react';
 import { GiExitDoor } from 'react-icons/gi';
+import { auth } from '../../utils/firebase';
+import AddDrawer from './AddDrawer';
 
 const SideBar = () => {
-  const changeTheme = () => {
-    var theme = document.getElementById('theme');
-    if (theme.checked == true) {
-      console.log('Hello');
-    } else {
-      console.log('not checked');
-    }
-  };
+  // const changeTheme = () => {
+  //   var theme = document.getElementById('theme');
+  //   if (theme.checked == true) {
+  //     console.log('Hello');
+  //   } else {
+  //     console.log('not checked');
+  //   }
+  // };
+
+  const [drawerModal, setDrawerModal] = useState(false);
+
   return (
     <>
       <div className=" sidebar hidden md:flex flex-col bg-bg-color row-start-1 row-end-7">
@@ -28,11 +32,14 @@ const SideBar = () => {
             </li>
           </ul>
           <div className="flex flex-col gap-4 items-center">
-            <button className="h-7 w-32 bg-btn-add rounded-lg cursor-pointer text-sm">
+            <button
+              onClick={() => setDrawerModal(true)}
+              className="h-7 w-32 bg-btn-add rounded-lg cursor-pointer text-sm"
+            >
               Add drawer
             </button>
             <input
-              onClick={changeTheme}
+              // onClick={changeTheme}
               id="theme"
               type="checkbox"
               className="input"
@@ -40,6 +47,7 @@ const SideBar = () => {
             <button className="text-xl h-7 w-10 bg-btn-add flex items-center justify-center rounded-lg mb-5 cursor-pointer">
               <GiExitDoor />
             </button>
+            {drawerModal && <AddDrawer closeDrawer={setDrawerModal} />}
           </div>
         </div>
       </div>
