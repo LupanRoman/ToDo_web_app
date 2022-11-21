@@ -30,12 +30,12 @@ const TopBar = () => {
   } else if (width >= 800) {
     return (
       <>
-        <div className="hidden md:flex row-start-1 row-end-1 bg-bg-color col-start-2 col-end-6">
+        <div className="hidden md:flex row-start-1 row-end-1 bg-bg-color col-start-2 col-end-6 h-20 items-center p-10 justify-between">
           <div>
-            <h4>Name of the board</h4>
+            <h4 className='text-xl font-semibold'>Name of the board</h4>
           </div>
           <div>
-            <button>Add Task</button>
+            <button className='h-12 w-40 bg-btn-add rounded-xl cursor-pointer font-semibold'>Add Task</button>
           </div>
         </div>
       </>
