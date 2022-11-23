@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { GrClose } from 'react-icons/gr';
-// import StateContext from '../../context/StateContext';
+import StateContext from '../../context/StateContext';
 
 const AddDrawer = ({ closeDrawer }) => {
-  // const { addOne } = useContext(StateContext);
+  const { getData } = useContext(StateContext);
 
   return (
     <>
@@ -14,14 +14,14 @@ const AddDrawer = ({ closeDrawer }) => {
           </button>
         </div>
         <h4>Add new drawer</h4>
-        <label htmlFor="title">Title</label>
+        <label htmlFor="drawer">Title</label>
         <input
           type="text"
-          id="title"
+          id="drawer"
           name="title"
           placeholder="Enter title here"
         />
-        <button>Add</button>
+        <button onClick={getData} >Add</button>
       </div>
     </>
   );
