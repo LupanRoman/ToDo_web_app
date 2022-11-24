@@ -1,26 +1,27 @@
 import React, { useContext } from 'react';
+import Link from 'next/link';
 import StateContext from '../../context/StateContext';
 
-const Drawer = () => {
+const Drawer = ({ item: { title, id } }) => {
   const { DrawersArr } = useContext(StateContext);
-  return (
-    <>
-      {DrawersArr.length < 1 && (
-        <div className="pl-10 pt-5 flex flex-col gap-2">
-          <h5>Your List is empty</h5>
+  const getId = () => {
+    console.log(id)
+  }
+  if (DrawersArr.length < 1) {
+    return (
+      <>
+        <div>Your list is empty</div>
+      </>
+    );
+  } else if (DrawersArr.length >= 1) {
+    return (
+      <>
+        <div>
+          <button onClick={getId}>{title}</button>
         </div>
-      )}
-
-      {DrawersArr.length >= 1 &&
-        DrawersArr.map((item) => (
-          <div key={item.slug} className="pl-10 pt-5 flex flex-col gap-2">
-            <h5 className="h-7 w-32 bg-btn-add rounded-lg indent-1.5 cursor-pointer">
-              {item.title}
-            </h5>
-          </div>
-        ))}
-    </>
-  );
+      </>
+    );
+  }
 };
 
 export default Drawer;

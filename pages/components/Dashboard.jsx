@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { auth } from '../../utils/firebase';
 import SideBar from './SideBar';
 import TopBar from './TopBar';
+import DrawerDetails from './[id]';
 
 const Dashboard = () => {
   const route = useRouter();
@@ -15,9 +16,10 @@ const Dashboard = () => {
   // if(user)
   return (
     <>
-      <div className='layout'>
+      <div className="layout">
         <SideBar />
         <TopBar />
+        <DrawerDetails />
       </div>
     </>
   );

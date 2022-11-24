@@ -4,18 +4,15 @@ const StateContext = createContext();
 
 export function ContextProvider({ children }) {
   const DrawersArr = [];
-  
-  
-  
 
   const getData = () => {
-    const titleInput = document.getElementById('drawer');
+    const titleInput = document.getElementById('drawer').value;
     DrawersArr.push({
-      title: titleInput.value,
-      slug: Math.random(1, 100),
+      title: titleInput,
+      id: Math.random(1, 5),
       content: [
         {
-          title: 'To Do',
+          status: 'To Do',
           ToDo: [
             {
               title: 'Title of the task',
@@ -23,7 +20,7 @@ export function ContextProvider({ children }) {
           ],
         },
         {
-          title: 'Done',
+          status: 'Done',
           Done: [
             {
               title: 'Task Done',
@@ -34,6 +31,7 @@ export function ContextProvider({ children }) {
     });
     console.log(DrawersArr);
   };
+
 
   return (
     <StateContext.Provider value={{ getData, DrawersArr, }}>
